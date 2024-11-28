@@ -21,7 +21,7 @@
 </head>
 <body>
   <model-viewer
-    src="football_pitch.glb"
+    src="もっけ.glb"
     alt="A 3D model"
     ar
     ar-modes="webxr scene-viewer quick-look"
@@ -31,7 +31,7 @@
     interaction-prompt="auto"
     ar-status="not-presenting"
     style="width: 100%; height: 100%;"
-    ios-src="football_pitch.usdz"
+    ios-src="もっけ.usdz"
     min-camera-orbit="auto auto auto"
     max-camera-orbit="auto auto auto"
     min-field-of-view="10deg"
@@ -41,21 +41,10 @@
     <button slot="ar-button" style="background-color: white; border-radius: 4px; border: none; position: absolute; bottom: 16px; right: 16px; ">
       👋 ARで表示する
     </button>
-    
-    <div class="controls" style="position: absolute; bottom: 16px; left: 16px; background: white; padding: 10px; border-radius: 4px;">
-      <label for="scale">スケール:</label>
-      <input type="range" id="scale" min="0.1" max="2" step="0.1" value="1">
-    </div>
   </model-viewer>
 
   <script>
     const modelViewer = document.querySelector('model-viewer');
-    const scaleSlider = document.getElementById('scale');
-    
-    scaleSlider.addEventListener('input', (event) => {
-      const scale = event.target.value;
-      modelViewer.scale = `${scale} ${scale} ${scale}`;
-    });
     
     modelViewer.addEventListener('ar-status', (event) => {
       if (event.detail.status === 'failed') {
